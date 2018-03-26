@@ -12,18 +12,8 @@
   <link rel="stylesheet" href="styles/modules.css">
   <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
   <!-- DONE: Setup a template for each row of the Author Stats section of this page: -->
-  <script id="stats-template" type="text/x-handlebars-template">
-    <div>
-      <h1>Blog Stats</h1>
-        <p id="total-articles" >Total articles:{{total-articles}}</p>
-        <p id="total-words" >Total words:{{total-words}}</p>
-    </div>
-    <div>
-      <h2>Author Stats</h2>  
-        <ul>Details on who is writing, and how much writing they are doing...
-          <li id="blog-stats" >`{{Author}}{{:word-count}}`</li>
-        </ul>
-    </div>
+  <script id="author-template" type="text/x-handlebars-template">
+    <li><strong>{{name}}</strong>: {{numWords}} words written</li>
   </script>
 </head>
 
@@ -68,10 +58,10 @@
   <script src="scripts/article.js"></script>
   <script src="scripts/articleView.js"></script>
   <script>
-    // TODO: After we fetch and load all the articles, what view function do we want to run next? 
+    // DONE: After we fetch and load all the articles, what view function do we want to run next? 
     // Let's pass in a callback!
-    function, to determine what happens AFTER all articles are loaded.
-    app.Article.fetchAll();
+    //function, to determine what happens AFTER all articles are loaded.
+    app.Article.fetchAll(app.articleView.initAdminPage);
   </script>
 </body>
 

@@ -142,8 +142,10 @@ var app = app || {};
   // DONE: Call the Handlebars .compile() method, which will return a function for you to use where needed.
   // Make sure you assign the result of your Handlebars.compile call to a variable called "template", since we are then calling "template" below.
 
-    const source = document.getElementById('stats-template').innerHTML;
-    const template = Handlebars.compile(source);
+    var template = Handlebars.compile($('#author-template').text());
+
+    // const source = document.getElementById('stats-template').innerHTML;
+    // const template = Handlebars.compile(source);
 
     // REVIEW: We use .forEach() here because we are relying on the side-effects of the callback function: appending to the DOM. The callback is not required to return anything.
     app.Article.numWordsByAuthor().forEach(stat => $('.author-stats').append(template(stat)));
@@ -152,5 +154,5 @@ var app = app || {};
     $('#blog-stats .articles').text(app.Article.all.length);
     $('#blog-stats .words').text(app.Article.numWordsAll());
   };
-  app.articleView = articleView;
+  module.articleView = articleView;
 })(app)
